@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "structureregiondebug",
+	"version": "${version}",
+	"name": "Structure Region Debug",
+	"description": "Adds a debug entry to the F3 menu showing where structures can spawn",
+	"authors": [
+		"Horsey4"
+	],
+	"license": "Unlicense",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"horsey4.structureregiondebug.StructureRegionDebug"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
