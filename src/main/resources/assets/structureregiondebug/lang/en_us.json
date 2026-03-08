@@ -1,0 +1,5 @@
+{
+  "debug.structureregiondebug.extents.on": "Structure region extents: shown for %s",
+  "debug.structureregiondebug.extents.off": "Structure region extents: hidden",
+  "key.structureregiondebug.showExtents": "Show Structure Region Extents"
+}
