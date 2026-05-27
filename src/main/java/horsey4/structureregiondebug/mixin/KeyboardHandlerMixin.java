@@ -20,12 +20,12 @@ public abstract class KeyboardHandlerMixin {
     private Minecraft minecraft;
 
     @Shadow
-    protected abstract void debugFeedbackTranslated(String string, Object... objects);
+    protected abstract void debugFeedbackTranslated(String pattern, Object... args);
 
     @Inject(method = "handleDebugKeys", at = @At("TAIL"), cancellable = true)
-    private void checkStructureRegionBorderRendererKeybinds(KeyEvent keyEvent, CallbackInfoReturnable<Boolean> cir) {
-        if (StructureRegionDebug.KEY_SHOW_EXTENTS.matches(keyEvent)) {
-            if (keyEvent.hasShiftDown() && minecraft.debugEntries.isCurrentlyEnabled(StructureRegionDebugEntries.STRUCTURE_REGION_EXTENTS)) {
+    private void checkStructureRegionBorderRendererKeybinds(KeyEvent event, CallbackInfoReturnable<Boolean> cir) {
+        if (StructureRegionDebug.KEY_SHOW_EXTENTS.matches(event)) {
+            if (event.hasShiftDown() && minecraft.debugEntries.isCurrentlyEnabled(StructureRegionDebugEntries.STRUCTURE_REGION_EXTENTS)) {
                 StructureRegionExtentsRenderer.gotoNextStructure();
                 debugFeedbackTranslated("debug.structureregiondebug.extents.on", StructureRegionExtentsRenderer.getCurrentStructure().name());
             } else {

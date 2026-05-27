@@ -37,9 +37,9 @@ public class StructureRegionExtentsRenderer implements DebugRenderer.SimpleDebug
         if (entity == null) return;
 
         var structure = getCurrentStructure();
-        var pos = new ChunkPos(entity.blockPosition());
-        var regionX = structure.getRegionPos(pos.x);
-        var regionZ = structure.getRegionPos(pos.z);
+        var pos = ChunkPos.containing(entity.blockPosition());
+        var regionX = structure.getRegionPos(pos.x());
+        var regionZ = structure.getRegionPos(pos.z());
         for (var x = -1; x <= 1; x++) {
             for (var z = -1; z <= 1; z++) {
                 Gizmos.cuboid(new AABB(

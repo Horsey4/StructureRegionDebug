@@ -16,12 +16,12 @@ public class DebugEntryStructureRegion implements DebugScreenEntry {
         var entity = Minecraft.getInstance().getCameraEntity();
         if (level == null || entity == null) return;
 
-        var pos = new ChunkPos(entity.blockPosition());
+        var pos = ChunkPos.containing(entity.blockPosition());
         for (var structure : StructureSetInfo.STRUCTURES) {
             if (level.dimension() != structure.dimension()) continue;
 
-            var regionX = structure.getRegionPos(pos.x);
-            var regionZ = structure.getRegionPos(pos.z);
+            var regionX = structure.getRegionPos(pos.x());
+            var regionZ = structure.getRegionPos(pos.z());
             displayer.addToGroup(DebugEntryPosition.GROUP, String.format(
                 "%s region: %d %d (Extents: %d %d to %d %d)",
                 structure.name(),
