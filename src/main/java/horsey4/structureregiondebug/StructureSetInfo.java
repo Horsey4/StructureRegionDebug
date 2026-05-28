@@ -3,7 +3,7 @@ package horsey4.structureregiondebug;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 
-public record StructureSetInfo(ResourceKey<Level> dimension, String name, int spacing, int seperation) {
+public record StructureSetInfo(ResourceKey<Level> dimension, String name, int spacing, int separation) {
     public static final StructureSetInfo[] STRUCTURES = {
         new StructureSetInfo(Level.OVERWORLD, "Village", 34, 8),
         new StructureSetInfo(Level.OVERWORLD, "Ancient city", 24, 8),
@@ -23,6 +23,6 @@ public record StructureSetInfo(ResourceKey<Level> dimension, String name, int sp
     }
 
     public int getMaxExtentPos(int regionPos) {
-        return getMinExtentPos(regionPos) + spacing - seperation - 1;
+        return getMinExtentPos(regionPos) + spacing - separation - 1;
     }
 }
