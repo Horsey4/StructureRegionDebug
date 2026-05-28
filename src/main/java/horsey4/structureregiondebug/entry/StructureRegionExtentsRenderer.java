@@ -11,6 +11,7 @@ import net.minecraft.util.ARGB;
 import net.minecraft.util.debug.DebugValueAccess;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.phys.AABB;
+import org.jspecify.annotations.NonNull;
 
 public class StructureRegionExtentsRenderer implements DebugRenderer.SimpleDebugRenderer {
     private static final GizmoStyle CLOSE_STYLE = GizmoStyle.strokeAndFill(ARGB.color(0, 255, 0), 2.0f, ARGB.color(31, 0, 255, 0));
@@ -32,7 +33,7 @@ public class StructureRegionExtentsRenderer implements DebugRenderer.SimpleDebug
     }
 
     @Override
-    public void emitGizmos(double camX, double camY, double camZ, DebugValueAccess values, Frustum frustum, float deltaTime) {
+    public void emitGizmos(double camX, double camY, double camZ, @NonNull DebugValueAccess values, @NonNull Frustum frustum, float deltaTime) {
         var entity = minecraft.getCameraEntity();
         if (entity == null) return;
 

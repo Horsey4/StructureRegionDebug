@@ -8,11 +8,12 @@ import net.minecraft.client.gui.components.debug.DebugScreenEntry;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.LevelChunk;
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public class DebugEntryStructureRegion implements DebugScreenEntry {
     @Override
-    public void display(DebugScreenDisplayer displayer, @Nullable Level level, @Nullable LevelChunk clientChunk, @Nullable LevelChunk serverChunk) {
+    public void display(@NonNull DebugScreenDisplayer displayer, @Nullable Level level, @Nullable LevelChunk clientChunk, @Nullable LevelChunk serverChunk) {
         var entity = Minecraft.getInstance().getCameraEntity();
         if (level == null || entity == null) return;
 
