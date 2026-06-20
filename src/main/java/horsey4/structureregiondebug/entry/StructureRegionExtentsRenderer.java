@@ -45,10 +45,10 @@ public class StructureRegionExtentsRenderer implements DebugRenderer.SimpleDebug
             for (var z = -1; z <= 1; z++) {
                 Gizmos.cuboid(new AABB(
                     SectionPos.sectionToBlockCoord(structure.getMinExtentPos(regionX + x)),
-                    entity.getEyeY() - 16,
+                    Math.round(entity.getEyeY() / 16) * 16 - 16,
                     SectionPos.sectionToBlockCoord(structure.getMinExtentPos(regionZ + z)),
                     SectionPos.sectionToBlockCoord(structure.getMaxExtentPos(regionX + x), 16),
-                    entity.getEyeY() + 16,
+                    Math.round(entity.getEyeY() / 16) * 16 + 16,
                     SectionPos.sectionToBlockCoord(structure.getMaxExtentPos(regionZ + z), 16)
                 ), x == 0 && z == 0 ? CLOSE_STYLE : FAR_STYLE).setAlwaysOnTop();
             }
